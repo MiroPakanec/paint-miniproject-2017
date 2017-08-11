@@ -1,0 +1,132 @@
+<html>
+  <head>
+    <!-- CSS packages -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="libs/Slider/slider.css">
+
+    <!-- CSS files -->
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/font-styles.css">
+  </head>
+  <body>
+    <!-- Main Container -->
+    <div class="container-fluid">
+      <!-- Title -->
+      <div class="row mg-lg-top mg-sm-bottom">
+        <div class="col-md-6 col-md-offset-3 col-xs-10 col-xs-offset-1">
+          <p class="text text-md text-center">just paint</p>
+        </div>
+      </div>
+      <!-- Upper tool bar -->
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3 col-xs-4 col-xs-offset-4">
+          <input type="button" id="btn-clear" class="btn btn-standard" value="clear">
+          <input type="button" id="btn-save" class="btn btn-standard" value="save">
+          <button type="button" id="btn-undo" class="btn btn-standard img-center-fill btn-action"></button>
+          <button type="button" id="btn-redo" class="btn btn-standard img-center-fill btn-action rotate-y-180"></button>
+        </div>
+      </div>
+      <!-- Main row -->
+      <div class="row">
+        <!-- Main LEFT column -->
+        <div class="col-md-1 col-md-offset-2 col-sm-12">
+          <button id="btn-brush" type="button" class="btn btn-standard btn-tool img-center-fill active" tool-type="0"></button>
+          <button id="btn-rubber" type="button" class="btn btn-standard btn-tool img-center-fill" tool-type="1"></button>
+        </div>
+        <!-- Main CENTER column -->
+        <div id="canvas" class="col-md-6 height-75 col-xs-12"></div>
+        <!-- Main RIGHT column -->
+        <div class="col-md-3 col-md-offset-0 col-xs-4 col-xs-offset-4">
+          <!-- Size Slider -->
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+              <hr class="pure">
+              <p id="tool-size" class="text text-xs"></p>
+              <input id="size-slider" type="text" value="20" />
+            </div>
+          </div>
+          <!-- Transparency Slider -->
+          <div class="row mg-xlg-top">
+            <div class="col-md-8 col-md-offset-2">
+              <p id="tool-transparency" class="text text-xs"></p>
+              <input id="transparency-slider" type="text" value="100" />
+            </div>
+          </div>
+          <!-- Stroke Slider -->
+          <div class="row mg-xlg-top">
+            <div class="col-md-8 col-md-offset-2">
+              <p id="tool-stroke" class="text text-xs"></p>
+              <input id="stroke-slider" type="text" value="0" />
+            </div>
+          </div>
+          <!-- Shape Menu -->
+          <div class="row mg-xlg-top">
+            <div class="col-md-8 col-md-offset-2">
+              <p class="text text-xs">Shape</p>
+              <button id="btn-circle" type="button" class="btn btn-standard btn-shape img-center-fill active" shape-type="0"></button>
+              <button id="btn-square" type="button" class="btn btn-standard btn-shape img-center-fill" shape-type="1"></button>
+            </div>
+          </div>
+          <!-- Active color -->
+          <div class="row mg-xlg-top">
+            <div class="col-md-8 col-md-offset-2">
+              <p class="text text-xs">Active color:</p>
+              <div id="lbl-color"></div>
+            </div>
+          </div>
+          <hr class="pure">
+        </div>
+      </div>
+      <!-- Color Picker -->
+      <div class="row">
+        <div id="color-picker" class="col-md-6 col-md-offset-3 col-xs-4 col-xs-offset-4"></div>
+      </div>
+    </div>
+
+    <!-- JS packages -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script language="javascript" type="text/javascript" src="libs/p5.js"></script>
+    <script language="javascript" type="text/javascript" src="libs/Slider/slider.js"></script>
+
+    <!-- JS Files -->
+    <script language="javascript" type="text/javascript" src="js/canvas.js"></script>
+    <script language="javascript" type="text/javascript" src="js/action.js"></script>
+    <script language="javascript" type="text/javascript" src="js/load.js"></script>
+
+    <!-- JS Files - Handlers -->
+    <script language="javascript" type="text/javascript" src="js/Handlers/actionHandler.js"></script>
+    <script language="javascript" type="text/javascript" src="js/Handlers/mouseHandler.js"></script>
+    <script language="javascript" type="text/javascript" src="js/Handlers/Menus/menuHandler.js"></script>
+    <script language="javascript" type="text/javascript" src="js/Handlers/Menus/toolMenuHandler.js"></script>
+    <script language="javascript" type="text/javascript" src="js/Handlers/Menus/shapeMenuHandler.js"></script>
+
+    <!-- JS Files - Event Handlers -->
+    <script language="javascript" type="text/javascript" src="js/EventHandlers/mouseEventHandler.js"></script>
+    <script language="javascript" type="text/javascript" src="js/EventHandlers/buttonEventHandler.js"></script>
+    <script language="javascript" type="text/javascript" src="js/EventHandlers/sliderEventHandler.js"></script>
+    <script language="javascript" type="text/javascript" src="js/EventHandlers/windowEventHandler.js"></script>
+
+    <!-- JS Files - Display elements -->
+    <script language="javascript" type="text/javascript" src="js/DisplayElements/plane.js"></script>
+    <script language="javascript" type="text/javascript" src="js/DisplayElements/Sliders/slider.js"></script>
+    <script language="javascript" type="text/javascript" src="js/DisplayElements/Sliders/sizeSlider.js"></script>
+    <script language="javascript" type="text/javascript" src="js/DisplayElements/Sliders/transparencySlider.js"></script>
+    <script language="javascript" type="text/javascript" src="js/DisplayElements/Sliders/strokeSlider.js"></script>
+
+    <!-- JS Files - Shapes -->
+    <script language="javascript" type="text/javascript" src="js/DisplayElements/Shapes/shape.js"></script>
+    <script language="javascript" type="text/javascript" src="js/DisplayElements/Shapes/ellipse.js"></script>
+    <script language="javascript" type="text/javascript" src="js/DisplayElements/Shapes/square.js"></script>
+
+    <!-- JS Files - Tools -->
+    <script language="javascript" type="text/javascript" src="js/Tools/brushTool.js"></script>
+    <script language="javascript" type="text/javascript" src="js/Tools/rubberTool.js"></script>
+    <script language="javascript" type="text/javascript" src="js/Tools/tool.js"></script>
+
+    <!-- JS Files - Helpers -->
+    <script language="javascript" type="text/javascript" src="js/Helpers/functions.js"></script>
+  </body>
+</html>

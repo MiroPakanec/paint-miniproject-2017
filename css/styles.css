@@ -1,0 +1,56 @@
+hr.pure{
+  border: none;
+}
+
+.btn-standard{
+
+  color: #333;
+  background-color: #fff;
+  border: 1px solid #333;
+  border-radius: 0;
+
+  margin-bottom: 5px;
+}
+
+.btn-color{
+
+  height: 1.5em;
+  border: none;
+}
+
+.btn-tool, .btn-shape, .btn-action{
+
+  height: 2.5em;
+  width: 2.5em;
+}
+
+.btn-tool.active, .btn-shape.active{
+
+  background-color: #cdcdcd;
+}
+
+.btn-standard:hover{
+
+  background-color: #eee;
+}
+
+.img-center-fill{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+#btn-brush{ background-image: url("../icons/brush.png"); }
+#btn-rubber{ background-image: url("../icons/rubber.png"); }
+#btn-circle{ background-image: url("../icons/circle.png"); }
+#btn-square{ background-image: url("../icons/square.png"); background-size: 130%; }
+#btn-undo{ background-image: url("../icons/undo.png"); background-size: 50%; }
+#btn-redo{ background-image: url("../icons/undo.png"); background-size: 50%; }
+
+#lbl-color{
+
+  height: 2em;
+  width: 2em;
+  border-radius: 0;
+  background-color: #dd5555;
+}

@@ -1,0 +1,14 @@
+.text{
+
+  font-family: monospace;
+  color: #333;
+}
+
+.text-center{ text-align: center;}
+
+.text-xlg {font-size: 120px;}
+.text-lg {font-size: 80px;}
+.text-md {font-size: 40px;}
+.text-sm {font-size: 20px;}
+.text-xs {font-size: 15px;}
+.text-xss {font-size: 10px;}
